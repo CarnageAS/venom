@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Program 2</title>
+<style type="text/css">
+ body{
+      margin:30px;
+     }
+
+</style>
+</head>
+
+<body>
+<form>
+Enter M1 : <input type="text" id="m1" oninput="Calc1()" /> Grad obtained : <span id="s1"></span><br>
+Enter M2 : <input type="text" id="m2" oninput="Calc2()" />  Grad obtained : <span id="s2"></span>
+</form>
+<p><input type="button" value="Total" onclick="tot()"/> 
+The Total out of 200 is : <span id="s3"></span>
+</p>
+
+<script>
+function grd(){
+   if(num>90 && num<=100)
+    val = 'A';
+
+  else if(num>80 && num<=90)
+    val = 'B';
+  
+  else if(num>70 && num<=80)
+    val = 'C';
+
+  else if(num>60 && num<=70)
+    val = 'D';
+
+  else if(num>50 && num<=60)
+    val = 'E';
+
+  else if(num>0 && num<=50)
+    val='F';
+
+  else  val=" ";
+       
+  return val;
+}
+
+function Calc1(){
+  var val = " " 
+  num = Number(document.getElementById("m1").value);
+    val = grd(num);
+   if(val == " ")
+    alert('Invalid Entry');    
+   document.getElementById("s1").innerHTML = val; 
+    document.getElementById("s1").style.color = 'red';
+}
+
+function Calc2(){
+  var val = " " 
+  num = Number(document.getElementById("m2").value);
+  val = grd(num);
+  if(val == " ")
+    alert('Invalid Entry');
+  document.getElementById("s2").innerHTML = val; 
+ document.getElementById("s2").style.color = 'red'; 
+}
+
+function tot(){
+   num1 = Number(document.getElementById("m1").value);
+   num2 = Number(document.getElementById("m2").value);
+   document.getElementById("s3").innerHTML = num1+num2;
+ document.getElementById("s3").style.color = 'red';
+}
+</script>
+</body>
+</html>

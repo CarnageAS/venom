@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SBI-ATM</title>
+	</head>
+	
+	<body>
+		<h1>WELCOME TO SBI BANK - WITHDRAW/DEPOSIT</h1>
+		<h3>YOUR BALANCE IS : {{balance}} </h3>
+		<h5>{{msg}}<h5>
+		
+		<form action="{{url_for('bankprocessing')}}" method="POST" id="bankatm">
+		AMOUNT : <input type="number" name="amount" required />
+		<input type="submit" name="action" value="WITHDRAW" onclick="return validate(this)" />
+		<input type="submit" name="action" value="DEPOSIT" onclick="return validate(this)" />
+		
+		</form>
+		
+		<h4>NO OF TRANSACTIONS IS : {{transactioncount}} </h4>
+		
+		<script>
+			function validate(button)
+			{
+				var form = document.getElementById("bankatm");
+				
+				if(form.amount.value == "")
+				{
+					alert("PLEASE ENTER THE AMOUNT TO PROCEED");
+					return false;
+				}
+				if(parseInt(form.amount.value) < 0)
+				{
+					alert("CANNOT ENTER NEGETIVE AMOUNT");
+					return false;
+				}
+				if(button.value == "WITHDRAW" && parseInt(form.amount.value) > 5000)
+				{
+					alert("CANNOT WITHDRAW MORE THAN 5000");
+					return false;
+				}
+				if(button.value == "DEPOSIT" && parseInt(form.amount.value) >10000)
+				{
+					alert("CANNOT DEPOSIT MORE THAN 10000");
+					return false;
+				}
+				
+				return true;
+			}
+		</script>
+		
+	</body>
+
+</html>

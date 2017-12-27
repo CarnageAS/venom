@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Program 4</title>
+</head>
+
+<body>
+<p><div id="tx1" onmouseover="show()" onmouseout="hide()">PIZZA</div></p><br>
+<img src="pizza.jpg" style="visibility:hidden" id="img1">
+
+<br><br>
+Input a pizza name : <input type="text" id="t1"/>
+<br><input type="button" value="Add" onclick="addTo()"/> 
+<p align="center"><h3>Varieties of pizza</h3><br>
+<textarea readonly id="txa1" rows=50 cols=20>Marghitta  pizza</textarea>
+
+<script>
+function show(){
+ document.getElementById("img1").style.visibility = 'visible';
+}
+
+function hide(){
+ document.getElementById("img1").style.visibility = 'hidden';
+}
+
+function addTo(){
+  var x="";
+  x = document.getElementById("t1").value;
+  document.getElementById("txa1").value += '\n'+x; 
+  
+}
+</script>
+</body>
+</html>
